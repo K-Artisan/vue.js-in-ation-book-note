@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 数组语法</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="class1" :class="[class4, class5]">数组语法:使用data </div>
+        <div class="class1" :class="[{'class2':hasClass2}, class3]">数组语法中使用对象语法（使用data） </div>
+        <div class="class1" :class="[classesOfcomputed]">数组语法中使用对象语法 （使用计算属性）</div>
+    </div>
+    <script src="../node_modules/_vue@2.6.11@vue/dist/vue.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                hasClass2: true,
+                class3: 'class3-value',
+                class4: 'class4-value',
+                class5: 'class5-value',
+                size: 'large',
+                disabled: true
+            },
+            computed: {
+                classesOfcomputed: function () {
+                    //返回一个对象
+                    return [
+                        'btn',
+                        {
+                            ['btn-' + this.size]: this.size != '',
+                            ['btn-disabled']: this.disabled
+                        }
+                    ]
+
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
