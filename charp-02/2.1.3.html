@@ -15,7 +15,7 @@
             date: {{date}}
         </p>
         <p>
-            number: {{number}}
+            number: {{number/2}}
         </p>
         <p v-html="link"></p>
     </div>
@@ -28,7 +28,7 @@
                 date: new Date(),
                 number: 1000,
                 link: '<a href="#">v-html输出为html</a>'
-                
+
             },
             mounted() {
                 let _this = this;
