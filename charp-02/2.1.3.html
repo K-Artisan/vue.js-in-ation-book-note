@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 插值表达式</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            book: {{book}}
+        </p>
+        <p>
+            date: {{date}}
+        </p>
+        <p>
+            number: {{number}}
+        </p>
+        <p v-html="link"></p>
+    </div>
+    <script src="../node_modules/_vue@2.6.11@vue/dist/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                book: '《Vue.js》',
+                date: new Date(),
+                number: 1000,
+                link: '<a href="#">v-html输出为html</a>'
+                
+            },
+            mounted() {
+                let _this = this;
+                this.timer = setInterval(() => {
+                    _this.date = new Date();
+                }, 1000);
+            }, destroyed() {
+                if (this.timer) {
+                    clearInterval(timer);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

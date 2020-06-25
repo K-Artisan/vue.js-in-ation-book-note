@@ -8,20 +8,15 @@
 
 <body>
     <div id="app">
-        <ul>
-            <li v-for="book in books">{{ book.name }}</li>
-        </ul>
+        <input type="text" v-model="name" placeholder="你的名字"/>
+        <h1>你好，{{name}}</h1>
     </div>
     <script src="../node_modules/_vue@2.6.11@vue/dist/vue.min.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                books: [
-                    { name: '《Vue.js实战》' },
-                    { name: '《JavaScript语言精粹》' },
-                    { name: '《JavaScript高级程序设计》' }
-                ]
+                name:''
             }
         })
     </script>
