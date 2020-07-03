@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <ul>
-            <li v-for="book in books">{{ book.name }}</li>
+            <li v-for="(book,index) in books">{{index}}.{{ book.name }}</li>
         </ul>
     </div>
     <script src="../lib/vue.2.6.11.js"></script>

@@ -3,24 +3,20 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Vue 生命周期</title>
+    <title>Vue 示例:v-show</title>
 </head>
 
 <body>
     <div id="app">
+        <input type="text" v-model="status" placeholder="status值" />
+        <h1 v-show="status == 1">status值=1时才显示，否则隐藏</h1>
     </div>
     <script src="../lib/vue.2.6.11.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                a: 2
-            },
-            created() {
-                console.log(this.a); //2
-            },
-            mounted() {
-                console.log(this.$el); // <div id="app"></div>
+                status: 1
             }
         })
     </script>

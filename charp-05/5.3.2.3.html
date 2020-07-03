@@ -3,18 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Vue 示例</title>
+    <title>Vue 示例:数组更新 </title>
 </head>
 
 <body>
     <div id="app">
         <ul>
-            <li v-for="book in books">{{ book.name }}</li>
+            <li v-for="(book,index) in books">{{index}}.{{ book.name }}</li>
         </ul>
+        <button type="button" @click="add">添加</button>
     </div>
     <script src="../lib/vue.2.6.11.js"></script>
     <script>
-        new Vue({
+        var app = new Vue({
             el: '#app',
             data: {
                 books: [
@@ -22,8 +23,14 @@
                     { name: '《JavaScript语言精粹》' },
                     { name: '《JavaScript高级程序设计》' }
                 ]
-            }
+            },
+            methods: {
+                add: function () {
+                    this.books.push({ name: '《Electron In Action》' });
+                }
+            },
         })
+
     </script>
 </body>
 

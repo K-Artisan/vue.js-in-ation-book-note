@@ -10,20 +10,20 @@
     <div id="app">
         <my-component :class="{'class2':hasClass2}"></my-component>
     </div>
-    <script src="../node_modules/_vue@2.6.11@vue/dist/vue.min.js"></script>
+    <script src="../lib/vue.2.6.11.js"></script>
     <script>
         //定义全局组件
         Vue.component('my-component', {
-        Vue.component('my-component', {
-            template: '<p class="class1">这种用法仅适用于自定义组件的最外层是一个根元素，否则会无效，</p>'
-        })
+            Vue.component('my-component', {
+                template: '<p class="class1">这种用法仅适用于自定义组件的最外层是一个根元素，否则会无效，</p>'
+            })
 
         var app = new Vue({
-            el: '#app',
-            data: {
-                hasClass2: true
-            }
-        })
+                el: '#app',
+                data: {
+                    hasClass2: true
+                }
+            })
     </script>
 </body>
 

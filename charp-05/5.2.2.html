@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:条件渲染</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="status" placeholder="status值" />
+        <h1 v-if="status === 1">status值=1</h1>
+        <h1 v-else-if="status === 2">status值=2</h1>
+        <h1 v-else="status === 3">status值=3</h1>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                status: 1
+            }
+        })
+    </script>
+</body>
+
+</html>

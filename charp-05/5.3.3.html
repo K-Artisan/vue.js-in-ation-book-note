@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:过滤与排序</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(book,index) in books">{{book.id}}.{{ book.name }}</li>
+        </ul>
+        <ul>
+            <li v-for="(book,index) in filterBooks">{{book.id}}.{{ book.name }}</li>
+        </ul>
+        <ul>
+            <li v-for="(book,index) in sortedBooks">{{book.id}}.{{ book.name }}</li>
+        </ul>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    { id: 1, name: '《Vue.js实战》' },
+                    { id: 2, name: '《JavaScript语言精粹》' },
+                    { id: 3, name: '《JavaScript高级程序设计》' }
+                ]
+            }, computed: {
+                filterBooks: function () {
+                    return this.books.filter(function (book) {
+                        return book.name.match(/JavaScript/);
+                    });
+                },
+                sortedBooks: function () {
+                    return this.books.sort(function (a, b) {
+                        return b.id - a.id;
+                    });
+                }
+            },
+
+
+        })
+
+    </script>
+</body>
+
+</html>

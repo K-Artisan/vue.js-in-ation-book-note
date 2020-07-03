@@ -8,15 +8,15 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model="name" placeholder="你的名字"/>
+        <input type="text" v-model="name" placeholder="你的名字" />
         <h1>你好，{{name}}</h1>
     </div>
-    <script src="../node_modules/_vue@2.6.11@vue/dist/vue.min.js"></script>
+    <script src="../lib/vue.2.6.11.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
-                name:''
+                name: ''
             }
         })
     </script>

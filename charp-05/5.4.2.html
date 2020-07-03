@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:方法与事件-修饰符</title>
+</head>
+
+<body>
+    <div id="app">
+        <a href="http://baidu.com" @click="addWithEvent1($event)">正常打开链接</a>
+        <a href="http://baidu.com" @click="addWithEvent2('禁止打开', $event)">禁止打开链接</a>
+        <a href="http://baidu.com" @click.prevent="addWithEvent3('禁止打开')">禁止打开链接</a>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+            }, methods: {
+                addWithEvent1: function (event) {
+                    alert(msg);
+                },
+                addWithEvent2: function (msg, event) {
+                    event.preventDefault();
+                    alert(msg);
+                },
+                addWithEvent3: function (msg, event) {
+                    alert(msg);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
