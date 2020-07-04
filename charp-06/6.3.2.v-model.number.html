@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:v-model.number</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-mode="myNumber1" placeholder="请输入数字" />
+        <p>myNumber1的类型:{{typeof myNumber1}},其值为：{{myNumber1}}</p>
+
+        <input type="text" v-model.number="myNumber2" placeholder="请输入数字" />
+        <p>myNumber2的类型:{{typeof myNumber2}},其值为：{{myNumber2}}</p>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myNumber1: 100,
+                myNumber2: 2
+            }
+        })
+    </script>
+</body>
+
+</html>

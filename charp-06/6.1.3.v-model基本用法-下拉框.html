@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:v-model基本用法-下拉框</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div>
+                <h1>下拉框</h1>
+                <select multiple>
+                    <option value="1">A</option>
+                    <option value="2">B</option>
+                    <option value="3">C</option>
+                    <option value="4">D</option>
+                    <option value="5">E</option>
+                    <option value="6">F</option>
+                </select>
+            </div>
+            <div>
+                <h1>v-model-单选下拉框</h1>
+                <select v-model="myContract">
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="tel">Tel</option>
+                </select>
+                <p>myContract的值为：{{myContract}}</p>
+            </div>
+            <div>
+                <h1>v-model-多选下拉框</h1>
+                <select multiple v-model="myBooks">
+                    <option value="html">HTML</option>
+                    <option value="js">JS</option>
+                    <option value="css">CSS</option>
+                </select>
+                <p>myBooks的值为：{{myBooks}}</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                myContract: "phone",
+                myBooks: ["html", "css"]
+            }
+        })
+    </script>
+</body>
+
+</html>

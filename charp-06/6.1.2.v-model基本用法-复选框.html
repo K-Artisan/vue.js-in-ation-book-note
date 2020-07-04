@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:v-model基本用法-复选框</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <div>
+                <h1>复选框基本属性</h1>
+                <p>
+                    <input type="checkbox" id="cbox1" value="first_checkbox">
+                    <label for="cbox1">This is the first checkbox</label>
+                </p>
+                <p>
+                    <input type="checkbox" id="cbox2" value="second_checkbox" checked="checked">
+                    <label for="cbox2">This is the second checkbox, which is checked</label>
+                </p>
+            </div>
+            <div>
+                <h1>v-model-单个复选框</h1>
+                <input type="checkbox" id="contactChoice1" v-model="sayYes">
+                <label for="contactChoice1">Yes</label>
+                <p>sayYes的值为：{{sayYes}}</p>
+            </div>
+            <div>
+                <h1>v-model-多个复选框</h1>
+                <input type="checkbox" id="book1" value="html" v-model="myBooks">
+                <label for="book1">HTML</label>
+
+                <input type="checkbox" id="book2" value="js" v-model="myBooks">
+                <label for="book2">JS</label>
+
+                <input type="checkbox" id="book3" value="css" v-model="myBooks">
+                <label for="book3">CSS</label>
+                <p>myBooks的值为：{{myBooks}}</p>
+            </div>
+        </div>
+
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                sayYes: true,
+                myBooks: ["html", "css"]
+            }
+        })
+    </script>
+</body>
+
+</html>
