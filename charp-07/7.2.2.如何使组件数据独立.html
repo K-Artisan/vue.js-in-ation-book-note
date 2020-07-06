@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:如何使组件数据独立</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>组件</h1>
+        <my-componet :pare-msg="parentDynamicMsg">
+        </my-componet>
+        <h1>父页面</h1>
+        <input type="text" v-model="parentDynamicMsg">
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-componet', {
+            template: '<div> \
+                          <p>myComponetMessage:{{myComponetMessage}}</p> \
+                          <input type="text" v-model="myComponetMessage"/>\
+                      </div>',
+            props: ['pareMsg'],
+            data: function () {
+                return {
+                    myComponetMessage: this.pareMsg //之后myComponetMessage就父组件的parentDynamicMsg无关，两者互不影响
+                }
+            }
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                parentDynamicMsg: "来自父组件的动态数据"
+            }
+        })
+
+    </script>
+</body>
+
+</html>

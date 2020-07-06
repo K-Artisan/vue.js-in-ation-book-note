@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:x-template</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component></my-component>
+        <script type="text/x-template" id="my-component">
+            <div>这是组件的内容</div>
+            <div>appMsg={{appMsg}}</div>
+            <div>cptMsg={{cptMsg}}</div>
+        </script>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-component', {
+            template: '#my-component',
+            data: function () {
+                return {
+                    cptMsg: "子组件的内容"
+                }
+            }
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                appMsg: "父组件的内容"
+            }
+        });
+    </script>
+</body>
+
+</html>

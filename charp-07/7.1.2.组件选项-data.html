@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:组件选项-data</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-global-componet></my-global-componet>
+        <my-global-componet></my-global-componet>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-global-componet', {
+            template: '<div> \
+                          组件的data.message：{{message}} \
+                          <button @click="count++">组件的data.count:{{ count }}</button> \
+                          <button @click="count++">组件的data.count:{{ count }}</button> \
+                     </div>',
+            data: function () {
+                //组件的data必须是函数，然后将数据return出去，
+                return {
+                    message: '组件的内容！！！',
+                    count: 0
+                }
+            }
+        });
+
+        var app = new Vue({
+            el: '#app'
+        })
+
+    </script>
+</body>
+
+</html>

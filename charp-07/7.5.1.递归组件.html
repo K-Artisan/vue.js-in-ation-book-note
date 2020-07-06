@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:递归组件</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-component :count="appAcount"></my-component>
+        <button @click="add()">+1</button>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-component', {
+            name: "my-component",
+            template: '\
+                    <div>\
+                        {{count}} \
+                        <my-component :count="count + 1" v-if="count < 5"> </my-component> \
+                    </div> '
+            , props: {
+                count: {
+                    type: Number,
+                    default: 0
+                }
+            }
+
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                appAcount: 1
+            }, methods: {
+                add: function () {
+                    this.appAcount++;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

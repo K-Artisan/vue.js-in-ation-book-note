@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:组件数据传递之-对象</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-list :cpt-books="mybooks" :cpt-msg="myMsg"></my-list>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-list', {
+            template: '<div> \
+                            <h1>cptMsg={{cptMsg}}</h1> \
+                            <ul>\
+                                <li v-for="book in cptBooks">{{book.name}}</li> \
+                            </ul>\
+                       </div>',
+            props: {
+                cptMsg: {
+                    type: String,
+                    default: function () {
+                        return "--";
+                    }
+                },
+                cptBooks: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    }
+                }
+            }
+
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                myMsg: "来自父组件的消息",
+                mybooks: [
+                    { name: '《Vue.js实战》' },
+                    { name: '《JavaScript语言精粹》' },
+                    { name: '《JavaScript高级程序设计》' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:非父子组件传递数据-使用一个空Vue作为中介</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>组件</h1>
+        <my-componet></my-componet>
+        <h1>父组件</h1>
+        <p>total={{total}}</p>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        //1.使用一个空的Vue实例作为中央事件总线（bus）
+        var bus = new Vue();
+        Vue.component('my-componet', {
+            template: '<div> \
+                          <button @click="handleIncrease">+1</button> \
+                          <button @click="handleReduce">-1</button> \
+                      </div>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleIncrease: function () {
+                    this.counter++;
+                    //2.bus发起事件
+                    bus.$emit('on-counter-change', this.counter);
+                },
+                handleReduce: function () {
+                    this.counter--;
+                    //2.bus发起事件
+                    bus.$emit('on-counter-change', this.counter);
+                },
+            },
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            }, mounted: function () {
+                let _this = this;
+                //3.bus监听事件
+                bus.$on('on-counter-change', function (counter) {
+                    _this.total = counter;
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

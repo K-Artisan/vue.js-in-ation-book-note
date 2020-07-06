@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:子组件向父组件传递数据-使用v-model和input事件名</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>组件</h1>
+        <my-componet v-model="total">
+        </my-componet>
+        <h1>父组件</h1>
+        <p>total={{total}}</p>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-componet', {
+            template: '<div> \
+                          <button @click="handleIncrease">+1</button> \
+                          <button @click="handleReduce">-1</button> \
+                      </div>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                handleIncrease: function () {
+                    this.counter++;
+                    this.$emit('input', this.counter);
+                },
+                handleReduce: function () {
+                    this.counter--;
+                    this.$emit('input', this.counter);
+                },
+            },
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                total: 0
+            }
+        })
+    </script>
+</body>
+
+</html>

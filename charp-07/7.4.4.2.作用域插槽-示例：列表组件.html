@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:作用域插槽-示例：列表组件</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-list :cptbooks="mybooks">
+            <!-- 作用域插槽也可以是具名的Slot -->
+            <template slot="book" slot-scope="props">
+                <li>{{ props.bookName }}</li>
+            </template>
+        </my-list>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-list', {
+            props: {
+                cptbooks: {
+                    type: Array,
+                    default: function () {
+                        return [];
+                    }
+                }
+            },
+            template: '\
+        <ul>\
+            <slot name="book"\
+                v-for="book in cptbooks"\
+                :book-name="book.name">\
+                <!-- 这里也可以写默认 slot内容 -->\
+            </slot>\
+        </ul> '
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mybooks: [
+                    { name: '《Vue.js实战》' },
+                    { name: '《JavaScript语言精粹》' },
+                    { name: '《JavaScript高级程序设计》' }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

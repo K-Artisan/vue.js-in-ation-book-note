@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:单个slot</title>
+</head>
+
+<body>
+    <div id="app">
+        <my-componet></my-componet>
+        <my-componet>
+            <p>父子组件内容</p>
+        </my-componet>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+
+        Vue.component('my-componet', {
+            template: '<div> \
+                          <slot>子组件的slot的内容</slot> \
+                      </div>'
+        });
+
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例:　使用props传递数据</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>组件</h1>
+        <my-componet message="来自父组件的数据1" warming-text="来自父组件的数据2" :pare-msg="parentDynamicMsg">
+        </my-componet>
+        <h1>父页面</h1>
+        <input type="text" v-model="parentDynamicMsg">
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        Vue.component('my-componet', {
+            template: '<div> \
+                          <p>message:{{message}}</p> \
+                          <p>warmingText:{{warmingText}}</p> \
+                          <p>pareMsg:{{pareMsg}}</p> \
+                      <div>',
+            props: ['message', 'warmingText', 'pareMsg'] //驼峰命名（camelCase）的props名称要转为短横分隔命名
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                parentDynamicMsg: "来自父组件的动态数据"
+            }
+        })
+
+    </script>
+</body>
+
+</html>
