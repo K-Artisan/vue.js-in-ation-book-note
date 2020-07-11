@@ -10,6 +10,12 @@
     <div id="app">
         <my-componet>
             <template slot-scope="props">
+                <p>
+                    观察子组件的模板，在slot元素上有一个类似props传递数据给组件的写法msg="xxx"，
+                    将数据传到了插槽。父组件中使用了template元素，而且拥有一个scope="props"的特性，
+                    这里的props 只是一个临时变量，就像v-for="item in items"里面的item一样。
+                    template内可以通过临时变量 props 访问来自子组件插槽的数据msg。
+                </p>
                 <p>来自父组件的内容</p>
                 <p>{{props.msg}}</p>
             </template>

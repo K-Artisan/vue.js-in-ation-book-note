@@ -27,13 +27,12 @@
                 }
             },
             template: '\
-        <ul>\
-            <slot name="book"\
-                v-for="book in cptbooks"\
-                :book-name="book.name">\
-                <!-- 这里也可以写默认 slot内容 -->\
-            </slot>\
-        </ul> '
+                        <ul>\
+                            <slot name="book"\
+                                v-for="book in cptbooks" :book-name="book.name">\
+                                <!-- 这里也可以写默认 slot内容 -->\
+                            </slot>\
+                        </ul> '
         });
 
         var app = new Vue({
