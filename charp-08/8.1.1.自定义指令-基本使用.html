@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 示例：自定义指令-基本使用</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+    </div>
+    <script src="../lib/vue.2.6.11.js"></script>
+    <script>
+        //全局注册指令
+        Vue.directive('focus', {
+            inserted: function (el, binding, vnode, oldVnode) {
+                console.log("focus->el:", el);
+                console.log("focus->binding:", binding);
+                console.log("focus->vnode:", vnode);
+                console.log("focus->oldVnode:", oldVnode);
+
+                // 聚焦元素
+                el.focus();
+            }
+        })
+        var app = new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
