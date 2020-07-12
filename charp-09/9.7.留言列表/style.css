@@ -1,24 +1,29 @@
-[v-cloak]{
+[v-cloak] {
     display: none;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
 }
-.message{
+
+.message {
     width: 450px;
     text-align: right;
 }
-.message div{
+
+.message div {
     margin-bottom: 12px;
 }
-.message span{
+
+.message span {
     display: inline-block;
     width: 100px;
     vertical-align: top;
 }
-.message input, .message textarea{
+
+.message input,
+.message textarea {
     width: 300px;
     height: 32px;
     padding: 0 6px;
@@ -28,14 +33,18 @@
     cursor: text;
     outline: none;
 }
-.message input:focus, .message textarea:focus{
+
+.message input:focus,
+.message textarea:focus {
     border: 1px solid #3399ff;
 }
-.message textarea{
+
+.message textarea {
     height: 60px;
     padding: 4px 6px;
 }
-.message button{
+
+.message button {
     display: inline-block;
     padding: 6px 15px;
     border: 1px solid #39f;
@@ -45,34 +54,41 @@
     cursor: pointer;
     outline: none;
 }
-.list{
+
+.list {
     margin-top: 50px;
 }
-list-item{
+
+list-item {
     padding: 10px;
     border-bottom: 1px solid #e3e8ee;
     overflow: hidden;
 }
-.list-item span{
+
+.list-item span {
     display: block;
     width: 60px;
     float: left;
     color: #39f;
 }
-.list-msg{
+
+.list-msg {
     display: block;
     margin-left: 60px;
     text-align: justify;
 }
-.list-msg a{
+
+.list-msg a {
     color: #9ea7b4;
     cursor: pointer;
     float: right;
 }
-.list-msg a:hover{
+
+.list-msg a:hover {
     color: #39f;
 }
-.list-nothing{
+
+.list-nothing {
     text-align: center;
     color: #9ea7b4;
     padding: 20px;
